@@ -25,7 +25,8 @@
             <div class="col-lg-6">
                 <div class="image-stack-container">
                     <div class="img-frame-main shadow">
-                        <img src="assets/images/zoe-holling-PScacPyJE5U-unsplash.jpg" alt="Premium Rolls-Royce Luxury Chauffeur" class="luxury-img-fluid">
+                        <!-- <img src="assets/images/zoe-holling-PScacPyJE5U-unsplash.jpg" alt="Premium Rolls-Royce Luxury Chauffeur" class="luxury-img-fluid"> -->
+                        <img src="assets/images/about-us.webp" alt="Premium Rolls-Royce Luxury Chauffeur" class="luxury-img-fluid">
                     </div>
 
                     <div class="experience-badge shadow-lg">
@@ -133,7 +134,8 @@
 
             <div class="col-lg-6 d-flex flex-column align-items-stretch">
                 <div class="services-header-right-thumb shadow-sm h-100">
-                    <img src="assets/images/our-service.png" alt="Premium Fleet Services Hub" class="services-header-img" onerror="this.onerror=null; this.src='assets/images/our-service.jpg';">
+                    <!-- <img src="assets/images/our-service.png" alt="Premium Fleet Services Hub" class="services-header-img" onerror="this.onerror=null; this.src='assets/images/our-service.jpg';"> -->
+                    <img src="assets/images/our-service.webp" alt="Premium Fleet Services Hub" class="services-header-img" onerror="this.onerror=null; this.src='assets/images/our-service.jpg';">
                 </div>
             </div>
         </div>
@@ -142,7 +144,7 @@
 
             <div class="luxury-service-card flex-card-item">
                 <div class="service-card-bg-holder">
-                    <img src="assets/images/card1.jpg" alt="Elite Chauffeur Rides" class="service-bg-cover-img">
+                    <img src="assets/images/card1.webp" alt="Elite Chauffeur Rides" class="service-bg-cover-img">
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
@@ -160,7 +162,7 @@
 
             <div class="luxury-service-card flex-card-item">
                 <div class="service-card-bg-holder">
-                    <img src="assets/images/card2.jpg" alt="Business Class Transport" class="service-bg-cover-img">
+                    <img src="assets/images/card2.webp" alt="Business Class Transport" class="service-bg-cover-img">
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
@@ -178,7 +180,7 @@
 
             <div class="luxury-service-card flex-card-item">
                 <div class="service-card-bg-holder">
-                    <img src="assets/images/card3.jpg" alt="Executive Ride Experience" class="service-bg-cover-img">
+                    <img src="assets/images/card3.webp" alt="Executive Ride Experience" class="service-bg-cover-img">
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
@@ -223,7 +225,7 @@
 
             <div class="col-lg-6">
                 <div class="center-focus-frame">
-                    <img src="assets/images/why-choose-us1.jpg" alt="Why Choose Us" class="focus-img">
+                    <img src="assets/images/why-choose-us1.webp" alt="Why Choose Us" class="focus-img">
                     <div class="stats-box">
                         <h3 class="counter">5k+</h3>
                         <p>Happy Clients</p>
@@ -269,15 +271,15 @@
             <div class="col-lg-7">
                 <div class="bento-grid">
                     <div class="bento-item main-car">
-                        <img src="assets/images/rolls royce.jpg" alt="Rolls Royce">
+                        <img src="assets/images/rolls royce.webp" alt="Rolls Royce">
                         <div class="label">Rolls-Royce</div>
                     </div>
                     <div class="bento-item sub-car-1">
-                        <img src="assets/images/mercedes-benz.jpeg" alt="Mercedes">
+                        <img src="assets/images/mercedes-benz.webp" alt="Mercedes">
                         <div class="label">Mercedes-Benz</div>
                     </div>
                     <div class="bento-item sub-car-2">
-                        <img src="assets/images/bmw.jpg" alt="BMW">
+                        <img src="assets/images/bmw.webp" alt="BMW">
                         <div class="label">BMW</div>
                     </div>
                 </div>
@@ -303,7 +305,7 @@
             <!-- Card 1: Rolls Royce -->
             <div class="col-lg-4 col-md-6">
                 <div class="prestige-card">
-                    <img src="assets/images/RR-phantom.JFIF" alt="Rolls-Royce">
+                    <img src="assets/images/RR-phantom.webp" alt="Rolls-Royce">
                     <div class="card-content">
                         <h3>Rolls-Royce Phantom</h3>
                         <p>5 Seats • V12 Engine</p>
@@ -318,7 +320,7 @@
             <!-- Card 2: Mercedes -->
             <div class="col-lg-4 col-md-6">
                 <div class="prestige-card">
-                    <img src="assets/images/Luxury Mercedes Maybach Chauffeur Service.jpg" alt="Mercedes">
+                    <img src="assets/images/Luxury Mercedes Maybach Chauffeur Service.webp" alt="Mercedes">
                     <div class="card-content">
                         <h3>Mercedes-Benz S-Class</h3>
                         <p>5 Seats • Automatic</p>
@@ -333,7 +335,7 @@
             <!-- Card 3: BMW -->
             <div class="col-lg-4 col-md-6">
                 <div class="prestige-card">
-                    <img src="assets/images/BMW X7.JFIF" alt="BMW">
+                    <img src="assets/images/BMW X7.webp" alt="BMW">
                     <div class="card-content">
                         <h3>BMW X7</h3>
                         <p>7 Seats • AWD</p>
@@ -357,7 +359,7 @@
             <!-- Left: Image -->
             <div class="col-lg-6">
                 <div class="feature-image-wrapper">
-                    <img src="assets/images/our-feature.jpg" alt="Experience" class="img-fluid rounded-4">
+                    <img src="assets/images/our-feature (2).webp" alt="Experience" class="img-fluid rounded-4">
                 </div>
             </div>
 
