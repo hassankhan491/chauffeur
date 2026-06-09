@@ -1,9 +1,10 @@
 <section class="contact-section py-5">
     <div class="container py-lg-5">
-        <div class="row g-5 align-items-center">
-            <!-- Left: Contact Details -->
+        <div class="row g-5 align-items-center margin-top">
+            <!-- Left:  -->
             <div class="col-lg-5">
-                <span class="section-tagline">Contact Us</span>
+                <!-- <span class="section-tagline">Contact Us</span> -->
+                <span class="section-tag-gold gold-tag">Contact Us</span>
                 <h2 class="section-main-heading mb-4">Ready to embark on <br>your next journey?</h2>
                 <p class="text-muted mb-5">Our concierge team is available 24/7 to assist with your bookings, inquiries, or custom travel requirements.</p>
                 
@@ -23,7 +24,7 @@
                 </div>
             </div>
 
-            <!-- Right: Premium Form -->
+            <!-- Right: -->
             <div class="col-lg-7">
                 <div class="contact-form-wrapper p-4 p-lg-5 bg-white rounded-4 shadow border">
                     <form>

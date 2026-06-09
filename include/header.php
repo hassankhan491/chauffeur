@@ -17,8 +17,8 @@
 </head>
 
 <body>
-<header>
-    <nav class="nav">
+    <header>
+        <!-- <nav class="nav">
         <div class="container container-custom">
             <div class="logo">
                 <a href="#">
@@ -44,5 +44,48 @@
                 <i></i>
             </div>
         </div>
-    </nav>
-</header>
+    </nav> -->
+        <nav class="nav">
+            <div class="container container-custom">
+                <div class="logo">
+                    <a href="#">
+                        <span class="logo-title">MY<span class="accent-text">CHAUFFEUR</span></span>
+                    </a>
+                </div>
+
+                <div id="mainListDiv" class="main_list">
+                    <ul class="navlinks">
+                        <li><a href="./index.php" class="nav-item-link">Home</a></li>
+                        <li><a href="./about-us.php" class="nav-item-link">About</a></li>
+                        <!-- <li><a href="#" class="nav-item-link">Services <span class="arrow"></span></a></li> -->
+                        <li class="dropdown-item">
+
+                            <a href="#" class="nav-item-link dropdown-toggle">
+                                Services
+                                <span class="arrow"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Executive Chauffeur</a></li>
+                                <li><a href="#">Airport Transfers</a></li>
+                                <li><a href="#">Corporate Travel</a></li>
+                                <li><a href="#">Wedding Rides</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a href="./fleet.php" class="nav-item-link">Fleet</a></li>
+                        <li><a href="./contact-us.php" class="nav-item-link">Contact</a></li>
+                    </ul>
+                    <div class="wrap">
+                        <button class="cus-button">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="navTrigger" id="navToggle">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+            </div>
+        </nav>
+    </header>

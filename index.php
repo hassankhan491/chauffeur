@@ -40,7 +40,11 @@
             <div class="col-lg-6">
                 <div class="about-content-wrapper">
                     <span class="section-tag-gold">ABOUT US</span>
-                    <h2 class="section-main-title mt-2">Driven by quality, trusted<br>for every journey</h2>
+                    <!-- <h2 class="section-main-title mt-2">Driven by quality, trusted<br>for every journey</h2> -->
+                    <h2 class="section-main-title mt-2">
+                        Driven by <span class="gold-text">quality, trusted</span><br>
+                        for every journey
+                    </h2>
 
 
                     <p class="section-lead-desc mt-3">
@@ -121,7 +125,11 @@
                 <div class="services-header-left-stack">
                     <!-- <span class="services-badge-tag">Our Services</span> -->
                     <span class="section-tag-gold">OUR SERVICES</span>
-                    <h2 class="services-main-heading mt-3">Reliable mobility solution<br>tailored to your journey</h2>
+                    <!-- <h2 class="services-main-heading mt-3">Reliable mobility solution<br>tailored to your journey</h2> -->
+                    <h2 class="services-main-heading mt-3">
+                        Reliable <span class="gold-text">mobility solution</span> <br>
+                        tailored to your journey
+                    </h2>
                     <p class="services-top-para mt-3">Experience unmatched comfort and style with our elite chauffeur service. From executive corporate travel and airport transfers to bespoke city tours and special events, our reliable solutions are designed around your unique travel needs.</p>
                     <div class="services-btn-wrapper mt-4">
                         <button class="services-action-btn">
@@ -205,8 +213,12 @@
         <div class="row mb-5">
             <div class="col-lg-6">
                 <!-- <span class="services-badge-tag mb-3">Why Choose Us</span> -->
-                <span class="section-tag-gold">WHY CHOOSE US</span>
-                <h2 class="services-main-heading">Reliable experience,<br>built on trust.</h2>
+                <span class="section-tag-gold gold-tag">WHY CHOOSE US</span>
+                <!-- <h2 class="services-main-heading">Reliable experience,<br>built on trust.</h2> -->
+                <h2 class="services-main-heading">
+                    Reliable <span class="gold-text">experience</span>,<br>
+                    built on trust.
+                </h2>
             </div>
         </div>
 
@@ -253,7 +265,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5 mb-5 mb-lg-0">
                 <!-- <span class="services-badge-tag mb-3">Premium Fleet</span> -->
-                <span class="section-tag-gold">Our Premium Fleet</span>
+                <span class="section-tag-gold gold-tag">Our Premium Fleet</span>
                 <h2 class="services-main-heading mb-4">Unmatched luxury,<br>engineered for you.</h2>
                 <p class="services-top-para mb-5">Experience the pinnacle of automotive excellence. From the timeless prestige of Rolls-Royce to the performance precision of Mercedes-Benz and BMW, our fleet is curated for excellence.</p>
                 <div class="d-flex gap-5">
@@ -405,7 +417,7 @@
 </section>
 
 <!-- CONTACT US -->
- <?php include 'include/contact-us.php'; ?>
+<?php include 'include/sec-contact-us.php'; ?>
 
 <!-- FAQS -->
 <section class="faq-section">
