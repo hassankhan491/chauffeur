@@ -116,7 +116,7 @@
     </div>
 </section>
 
-<!-- 3. SERVICES GRID SECTION -->
+<!-- 3. SERVICES SECTION -->
 <section class="services-premium-section">
     <div class="container custom-services-container">
 
@@ -299,10 +299,10 @@
         </div>
     </div>
 </section>
-<!-- 6. "PRESTIGE FLEET" - HORIZONTAL DRAG GALLERY -->
+<!-- 6. PRESTIGE FLEET SECTION -->
 <section class="prestige-fleet-section">
     <div class="container">
-        <!-- Optimized Header -->
+       
         <div class="row mb-5 text-center">
             <div class="col-12">
                 <!-- <span class="services-badge-tag mb-2">Our Fleet</span> -->
@@ -416,10 +416,10 @@
     </div>
 </section>
 
-<!-- CONTACT US -->
+<!-- CONTACT US SECTION -->
 <?php include 'include/sec-contact-us.php'; ?>
 
-<!-- FAQS -->
+<!-- FAQS SECTION -->
 <section class="faq-section">
     <div class="container">
         <div class="section-heading">

@@ -18,33 +18,7 @@
 
 <body>
     <header>
-        <!-- <nav class="nav">
-        <div class="container container-custom">
-            <div class="logo">
-                <a href="#">
-                    <span class="logo-title">MY<span class="accent-text">CHAUFFEUR</span></span>
-                </a>
-            </div>
-
-            <div id="mainListDiv" class="main_list">
-                <ul class="navlinks">
-                    <li><a href="#" class="nav-item-link">Companies <span class="arrow"></span></a></li>
-                    <li><a href="#" class="nav-item-link">Services <span class="arrow"></span></a></li>
-                    <li><a href="#" class="nav-item-link">Contact</a></li>
-                    <li><a href="#" class="nav-item-link language-selector">EN <span class="arrow"></span></a></li>
-                </ul>
-                <div class="wrap">
-                    <button class="cus-button">Get Started</button>
-                </div>
-            </div>
-
-            <div class="navTrigger" id="navToggle">
-                <i></i>
-                <i></i>
-                <i></i>
-            </div>
-        </div>
-    </nav> -->
+        <!-- NAV -->
         <nav class="nav">
             <div class="container container-custom">
                 <div class="logo">
