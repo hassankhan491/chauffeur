@@ -168,6 +168,214 @@
         });
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // =========================
+// MAP INITIALIZATION
+// =========================
+let map, pickupMarker, dropoffMarker;
+
+// Initialize Map (Call this when page loads)
+function initMap() {
+  // Center on Frankfurt, Germany
+  map = L.map('bookingMap').setView([50.1109, 8.6821], 13); // Zoom level badha diya
+  
+  // Option 1: CartoDB Positron (Clean, minimal, great readability)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
+  }).addTo(map);
+}
+// Call initMap when page loads
+document.addEventListener('DOMContentLoaded', initMap);
+
+// =========================
+// FORM FUNCTIONALITY
+// =========================
+
+// Set minimum date to today
+const today = new Date().toISOString().split('T')[0];
+const pickupDateInput = document.getElementById('pickupDate');
+if (pickupDateInput) {
+  pickupDateInput.min = today;
+}
+
+// Ride Type Switcher
+function switchRideType(type) {
+  document.querySelectorAll('.ride-tab').forEach(tab => tab.classList.remove('active'));
+  event.target.closest('.ride-tab').classList.add('active');
+  
+  const extraOptions = document.getElementById('extraOptions');
+  if (extraOptions) {
+    extraOptions.style.display = type === 'hourly' ? 'block' : 'none';
+  }
+}
+
+// Use Current Location
+function useCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      
+      document.getElementById('pickupLocation').value = 'Current Location';
+      
+      // Update map
+      if (map) {
+        map.setView([lat, lng], 15);
+        
+        if (pickupMarker) map.removeLayer(pickupMarker);
+        pickupMarker = L.marker([lat, lng]).addTo(map)
+          .bindPopup('Pickup Location')
+          .openPopup();
+      }
+    }, () => {
+      alert('Unable to retrieve your location. Please enter manually.');
+    });
+  } else {
+    alert('Geolocation is not supported by this browser.');
+  }
+}
+
+// Calculate Route (Simulated - Replace with Google Maps API for production)
+// Calculate Route (For Germany)
+function calculateRoute() {
+  const pickup = document.getElementById('pickupLocation').value;
+  const dropoff = document.getElementById('dropoffLocation').value;
+  
+  if (pickup && dropoff && map) {
+    // Simulated calculation for German cities
+    setTimeout(() => {
+      document.getElementById('distanceValue').textContent = '190 km';
+      document.getElementById('timeValue').textContent = '2 h 5 min';
+      
+      // Example: Frankfurt to Munich (German cities)
+      if (pickupMarker) map.removeLayer(pickupMarker);
+      if (dropoffMarker) map.removeLayer(dropoffMarker);
+      
+      pickupMarker = L.marker([50.1109, 8.6821]).addTo(map).bindPopup('Pickup: Frankfurt');
+      dropoffMarker = L.marker([48.1351, 11.5820]).addTo(map).bindPopup('Drop-off: Munich');
+      
+      // Fit bounds to show both markers
+      const group = new L.featureGroup([pickupMarker, dropoffMarker]);
+      map.fitBounds(group.getBounds(), { padding: [50, 50] });
+    }, 500);
+  }
+}
+
+// Auto-calculate when locations change
+const pickupLocation = document.getElementById('pickupLocation');
+const dropoffLocation = document.getElementById('dropoffLocation');
+
+if (pickupLocation) pickupLocation.addEventListener('blur', calculateRoute);
+if (dropoffLocation) dropoffLocation.addEventListener('blur', calculateRoute);
+
+// =========================
+// FORM SUBMISSION - FIXED
+// =========================
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Collect form data
+  const formData = {
+    rideType: document.querySelector('.ride-tab.active') ? document.querySelector('.ride-tab.active').dataset.type || 'distance' : 'distance',
+    pickupDate: document.getElementById('pickupDate').value,
+    pickupTime: document.getElementById('pickupTime').value,
+    pickupLocation: document.getElementById('pickupLocation').value,
+    dropoffLocation: document.getElementById('dropoffLocation').value,
+    transferType: document.getElementById('transferType').value,
+    passengers: document.querySelector('select[name="passengers"]') ? document.querySelector('select[name="passengers"]').value : '1'
+  };
+  
+  console.log('Booking Data:', formData);
+  
+  // Store in localStorage (for next page)
+  localStorage.setItem('bookingData', JSON.stringify(formData));
+  
+  // Update progress steps
+  updateProgressSteps(2);
+  
+  // Option 1: Redirect to next page
+  // window.location.href = 'booking-contact.php';
+  
+  // Option 2: Show success message and redirect
+  showNotification('Ride details saved! Proceeding to contact information...');
+  
+  setTimeout(() => {
+    window.location.href = 'booking-contact.php'; // Change to your actual contact page
+  }, 1500);
+});
+
+// Update Progress Steps
+function updateProgressSteps(stepNumber) {
+  const steps = document.querySelectorAll('.step');
+  steps.forEach((step, index) => {
+    step.classList.remove('active', 'completed');
+    if (index + 1 < stepNumber) {
+      step.classList.add('completed');
+    } else if (index + 1 === stepNumber) {
+      step.classList.add('active');
+    }
+  });
+}
+
+// Show Notification
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'booking-notification';
+  notification.innerHTML = `
+    <i class="bi bi-check-circle"></i>
+    <span>${message}</span>
+  `;
+  notification.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
+
+// Add animation CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    from { transform: translateX(400px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+`;
+document.head.appendChild(style);
+</script>
 </body>
 
 </html>

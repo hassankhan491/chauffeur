@@ -1,34 +1,37 @@
 <?php include 'include/header.php'; ?>
 
 <!--1. HOMEE -->
-<section class="home">
-    <section class="home d-flex align-items-center">
-        <div class="container text-center text-white">
-            <span class="badge-premium">PREMIUM CHAUFFEUR SERVICE</span>
-            <h1 class="hero-title mt-3">Rent The Perfect Car For Every<br><span class="accent-text">Adventure Today</span></h1>
-            <p class="hero-subtitle mx-auto">Experience unparalleled luxury and dynamic styling with our elite collection of global fleet vehicles, curated specifically for premium comfort.</p>
-            <div class="hero-btns mt-4 d-flex justify-content-center gap-3">
-                <button class="cus-button">Book A Ride</button>
-                <button class="btn-outline-premium">See All Cars</button>
-            </div>
+
+<section class="home d-flex align-items-center">
+    <div class="container text-center text-white">
+        <span class="badge-premium">PREMIUM CHAUFFEUR SERVICE</span>
+        <h1 class="hero-title mt-3">Rent The Perfect Car For Every<br><span class="accent-text">Adventure Today</span></h1>
+        <p class="hero-subtitle mx-auto">Experience unparalleled luxury and dynamic styling with our elite collection of global fleet vehicles, curated specifically for premium comfort.</p>
+        <div class="hero-btns mt-4 d-flex justify-content-center gap-3">
+            <button class="cus-button">Book A Ride</button>
+            <button class="btn-outline-premium">See All Cars</button>
         </div>
-    </section>
+    </div>
 </section>
 
 
 <!--2. ABOUT -->
 <section class="about-luxury-section">
     <div class="container custom-section-container">
+        <div class="about-section-header-mobile">
+            <span class="section-tag-gold">ABOUT US</span>
+            <h2 class="section-main-title mt-2">
+                Driven by <span class="gold-text">quality, trusted</span><br>
+                for every journey
+            </h2>
+        </div>
+
         <div class="row align-items-center g-5">
-
-
             <div class="col-lg-6">
                 <div class="image-stack-container">
                     <div class="img-frame-main shadow">
-                        <!-- <img src="assets/images/zoe-holling-PScacPyJE5U-unsplash.jpg" alt="Premium Rolls-Royce Luxury Chauffeur" class="luxury-img-fluid"> -->
                         <img src="assets/images/about-us.webp" alt="Premium Rolls-Royce Luxury Chauffeur" class="luxury-img-fluid">
                     </div>
-
                     <div class="experience-badge shadow-lg">
                         <span class="badge-num">15+</span>
                         <span class="badge-txt">Years<br>Experience</span>
@@ -36,21 +39,18 @@
                 </div>
             </div>
 
-
             <div class="col-lg-6">
                 <div class="about-content-wrapper">
-                    <span class="section-tag-gold">ABOUT US</span>
-                    <!-- <h2 class="section-main-title mt-2">Driven by quality, trusted<br>for every journey</h2> -->
-                    <h2 class="section-main-title mt-2">
+
+                    <span class="section-tag-gold desktop-only">ABOUT US</span>
+                    <h2 class="section-main-title mt-2 desktop-only">
                         Driven by <span class="gold-text">quality, trusted</span><br>
                         for every journey
                     </h2>
 
-
                     <p class="section-lead-desc mt-3">
                         We redefine corporate travel and private tours with our impeccably maintained executive fleet and certified professional chauffeurs. Every pathway is curated to precision, matching high-tier corporate protocols.
                     </p>
-
 
                     <div class="row g-3 about-micro-features mb-4">
                         <div class="col-sm-6 d-flex align-items-center gap-2">
@@ -71,10 +71,7 @@
                         </div>
                     </div>
 
-
                     <div class="accordion custom-premium-accordion" id="aboutAccordion">
-
-
                         <div class="accordion-item shadow-sm">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1" aria-expanded="true" aria-controls="c1">
@@ -88,7 +85,6 @@
                             </div>
                         </div>
 
-
                         <div class="accordion-item shadow-sm">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2" aria-expanded="false" aria-controls="c2">
@@ -101,32 +97,35 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
 
                     <div class="about-action-trigger mt-4">
                         <button class="cus-button text-white">Discover Our Full Story</button>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
 <!-- 3. SERVICES SECTION -->
+
 <section class="services-premium-section">
     <div class="container custom-services-container">
+
+        <div class="services-section-header-mobile">
+            <span class="section-tag-gold">OUR SERVICES</span>
+            <h2 class="services-main-heading mt-3">
+                Reliable <span class="gold-text">mobility solution</span> <br>
+                tailored to your journey
+            </h2>
+        </div>
 
         <div class="row align-items-stretch mb-5 header-spacing-row g-5">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
                 <div class="services-header-left-stack">
-                    <!-- <span class="services-badge-tag">Our Services</span> -->
-                    <span class="section-tag-gold">OUR SERVICES</span>
-                    <!-- <h2 class="services-main-heading mt-3">Reliable mobility solution<br>tailored to your journey</h2> -->
-                    <h2 class="services-main-heading mt-3">
+                    <span class="section-tag-gold desktop-only">OUR SERVICES</span>
+                    <h2 class="services-main-heading mt-3 desktop-only">
                         Reliable <span class="gold-text">mobility solution</span> <br>
                         tailored to your journey
                     </h2>
@@ -142,21 +141,18 @@
 
             <div class="col-lg-6 d-flex flex-column align-items-stretch">
                 <div class="services-header-right-thumb shadow-sm h-100">
-                    <!-- <img src="assets/images/our-service.png" alt="Premium Fleet Services Hub" class="services-header-img" onerror="this.onerror=null; this.src='assets/images/our-service.jpg';"> -->
                     <img src="assets/images/our-service.webp" alt="Premium Fleet Services Hub" class="services-header-img" onerror="this.onerror=null; this.src='assets/images/our-service.jpg';">
                 </div>
             </div>
         </div>
 
         <div class="services-accordion-wrapper">
-
             <div class="luxury-service-card flex-card-item">
                 <div class="service-card-bg-holder">
                     <img src="assets/images/card1.webp" alt="Elite Chauffeur Rides" class="service-bg-cover-img">
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
-
                         <h3 class="service-card-title mt-3">Elite Chauffeur Rides</h3>
                     </div>
                     <div class="animated-card-bottom-reveal">
@@ -174,7 +170,6 @@
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
-
                         <h3 class="service-card-title mt-3">Business Class Transport</h3>
                     </div>
                     <div class="animated-card-bottom-reveal">
@@ -192,7 +187,6 @@
                 </div>
                 <div class="card-animated-overlay">
                     <div class="animated-card-top-center">
-
                         <h3 class="service-card-title mt-3">Executive Ride Experience</h3>
                     </div>
                     <div class="animated-card-bottom-reveal">
@@ -203,7 +197,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -264,7 +257,6 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 mb-5 mb-lg-0">
-                <!-- <span class="services-badge-tag mb-3">Premium Fleet</span> -->
                 <span class="section-tag-gold gold-tag">Our Premium Fleet</span>
                 <h2 class="services-main-heading mb-4">Unmatched luxury,<br>engineered for you.</h2>
                 <p class="services-top-para mb-5">Experience the pinnacle of automotive excellence. From the timeless prestige of Rolls-Royce to the performance precision of Mercedes-Benz and BMW, our fleet is curated for excellence.</p>
@@ -298,15 +290,14 @@
             </div>
         </div>
     </div>
-</section>
+</section> 
 <!-- 6. PRESTIGE FLEET SECTION -->
 <section class="prestige-fleet-section">
     <div class="container">
        
         <div class="row mb-5 text-center">
             <div class="col-12">
-                <!-- <span class="services-badge-tag mb-2">Our Fleet</span> -->
-                <!-- <span class="section-tag-gold">OUR FLEET</span> -->
+               
                 <h2 class="services-main-heading">Prestige vehicles for<br>elevated journeys.</h2>
             </div>
         </div>
@@ -366,8 +357,18 @@
 <!-- OUR FEATURE SECTION -->
 <section class="features-section-v2">
     <div class="container">
-        <div class="row align-items-center g-5">
+        <!-- Heading & Description (Full Width) -->
+        <div class="features-header-text">
             <span class="section-tag-gold">OUR FEATURES</span>
+            <h2 class="features-main-heading">
+                Why We <span class="gold-text">Stand Apart</span>
+            </h2>
+            <p class="features-lead-desc">
+                Discover what makes our chauffeur service the preferred choice for discerning travelers. We combine luxury, reliability, and technology to deliver an unmatched experience.
+            </p>
+        </div>
+
+        <div class="row align-items-center g-5">
             <!-- Left: Image -->
             <div class="col-lg-6">
                 <div class="feature-image-wrapper">
