@@ -1,6 +1,5 @@
 <?php include 'include/header.php'; ?>
 
-<!-- Banner -->
 <section class="page-banner fleet-banner">
     <div class="banner-content">
         <h1>Contact Information</h1>
@@ -19,9 +18,7 @@
             
             <!-- Step 1: Completed -->
             <div class="step completed">
-                <div class="step-number">
-                    <i class="bi bi-check-lg"></i>
-                </div>
+                <div class="step-number">1</div>
                 <div class="step-label">Ride Details</div>
             </div>
             
@@ -204,49 +201,35 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('summaryPickup').textContent = bookingData.pickupLocation || '-';
         document.getElementById('summaryDropoff').textContent = bookingData.dropoffLocation || '-';
         document.getElementById('summaryDateTime').textContent = (bookingData.pickupDate + ' ' + bookingData.pickupTime) || '-';
-        document.getElementById('summaryDistance').textContent = '165 km'; // Yahan actual distance aayegi
-        document.getElementById('summaryPrice').textContent = '€150.00'; // Yahan actual price calculate karni hai
+        document.getElementById('summaryDistance').textContent = '165 km';
+        document.getElementById('summaryPrice').textContent = '€150.00';
     }
 });
 
 // Form Submission
+// Form Submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Collect form data
     const formData = new FormData(this);
     const contactData = Object.fromEntries(formData);
     
-    // Get ride details from localStorage
     const rideData = JSON.parse(localStorage.getItem('bookingData'));
     
-    // Combine both
     const completeBooking = {
         ...rideData,
         ...contactData,
         bookingDate: new Date().toISOString()
     };
     
+    // Save complete booking data
+    localStorage.setItem('bookingData', JSON.stringify(completeBooking));
+    
     console.log('Complete Booking:', completeBooking);
     
-    // Yahan aap server ko data bhej sakte hain
-    /*
-    fetch('process-booking.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(completeBooking)
-    })
-    .then(response => response.json())
-    .then(data => {
-        window.location.href = 'confirmation.php?booking=' + data.bookingId;
-    });
-    */
-    
-    // Temporary: Show success and redirect
-    alert('🎉 Booking Confirmed! We will contact you shortly.');
-    localStorage.removeItem('bookingData');
-    window.location.href = 'index.php';
-});
+    // Redirect to confirmation page
+    window.location.href = 'confirmation.php';
+}); 
 </script>
 
 <?php include 'include/footer.php'; ?>

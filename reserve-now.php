@@ -12,9 +12,7 @@
     </div>
 </section>
 
-<!-- =========================
-     BOOKING SECTION
-========================= -->
+<!-- BOOKING SECTION-->
 <section class="booking-section">
     <div class="container">
         

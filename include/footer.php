@@ -9,7 +9,7 @@
 
             
             <div class="col-lg-4">
-                <h6 class="text-uppercase text-gold mb-4" style="font-size: 0.75rem; letter-spacing: 3px;">Governance</h6>
+                <h6 class="text-uppercase text-gold mb-4" style="font-size: 0.75rem; letter-spacing: 3px;">Help</h6>
                 <ul class="list-unstyled d-flex flex-column gap-3">
                     <li><a href="#" class="text-white text-decoration-none opacity-75 hover-gold">Privacy Policy</a></li>
                     <li><a href="#" class="text-white text-decoration-none opacity-75 hover-gold">Terms of Fleet Usage</a></li>
@@ -117,7 +117,7 @@
                 updateCounter();
             });
 
-            // Animate progress circles
+            
             progressCircles.forEach(circle => {
                 const target = +circle.getAttribute('data-target');
                 const maxTarget = 120;
@@ -131,7 +131,7 @@
             });
         };
 
-        // Trigger animation when section is in view
+      
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -149,74 +149,34 @@
 </script>
 
 
-<!-- FAQS SCRIPT -->
-<script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const faqItem = button.parentElement;
-
-            // Agar pehle se active hai toh close kar do, varna open
-            if (faqItem.classList.contains('active-faq')) {
-                faqItem.classList.remove('active-faq');
-                console.log("0");
-            } else {
-                // console.log("1");
-                // Baqi sab items se active class hata do (taake sirf ek khula rahe)
-                document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active-faq'));
-                faqItem.classList.add('active-faq');
-            }
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // =========================
+    
 // MAP INITIALIZATION
-// =========================
-let map, pickupMarker, dropoffMarker;
 
-// Initialize Map (Call this when page loads)
+let map, pickupMarker, dropoffMarker, routeLine;
+
 function initMap() {
-  // Center on Frankfurt, Germany
-  map = L.map('bookingMap').setView([50.1109, 8.6821], 13); // Zoom level badha diya
+  map = L.map('bookingMap').setView([50.1109, 8.6821], 13);
   
-  // Option 1: CartoDB Positron (Clean, minimal, great readability)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: 'abcd',
     maxZoom: 20
   }).addTo(map);
 }
-// Call initMap when page loads
+
 document.addEventListener('DOMContentLoaded', initMap);
 
-// =========================
 // FORM FUNCTIONALITY
-// =========================
 
-// Set minimum date to today
 const today = new Date().toISOString().split('T')[0];
 const pickupDateInput = document.getElementById('pickupDate');
-if (pickupDateInput) {
-  pickupDateInput.min = today;
-}
+if (pickupDateInput) pickupDateInput.min = today;
 
-// Ride Type Switcher
 function switchRideType(type) {
   document.querySelectorAll('.ride-tab').forEach(tab => tab.classList.remove('active'));
   event.target.closest('.ride-tab').classList.add('active');
@@ -227,7 +187,6 @@ function switchRideType(type) {
   }
 }
 
-// Use Current Location
 function useCurrentLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -236,7 +195,6 @@ function useCurrentLocation() {
       
       document.getElementById('pickupLocation').value = 'Current Location';
       
-      // Update map
       if (map) {
         map.setView([lat, lng], 15);
         
@@ -253,46 +211,118 @@ function useCurrentLocation() {
   }
 }
 
-// Calculate Route (Simulated - Replace with Google Maps API for production)
-// Calculate Route (For Germany)
-function calculateRoute() {
-  const pickup = document.getElementById('pickupLocation').value;
-  const dropoff = document.getElementById('dropoffLocation').value;
-  
-  if (pickup && dropoff && map) {
-    // Simulated calculation for German cities
-    setTimeout(() => {
-      document.getElementById('distanceValue').textContent = '190 km';
-      document.getElementById('timeValue').textContent = '2 h 5 min';
-      
-      // Example: Frankfurt to Munich (German cities)
-      if (pickupMarker) map.removeLayer(pickupMarker);
-      if (dropoffMarker) map.removeLayer(dropoffMarker);
-      
-      pickupMarker = L.marker([50.1109, 8.6821]).addTo(map).bindPopup('Pickup: Frankfurt');
-      dropoffMarker = L.marker([48.1351, 11.5820]).addTo(map).bindPopup('Drop-off: Munich');
-      
-      // Fit bounds to show both markers
-      const group = new L.featureGroup([pickupMarker, dropoffMarker]);
-      map.fitBounds(group.getBounds(), { padding: [50, 50] });
-    }, 500);
-  }
+// REAL DISTANCE CALCULATION (OSRM - FREE)
+
+async function calculateRoute() {
+    const pickup = document.getElementById('pickupLocation').value.trim();
+    const dropoff = document.getElementById('dropoffLocation').value.trim();
+    
+    if (!pickup || !dropoff) return;
+    
+    try {
+        // Geocode both locations
+        const pickupCoords = await geocodeLocation(pickup);
+        const dropoffCoords = await geocodeLocation(dropoff);
+        
+        if (!pickupCoords || !dropoffCoords) {
+            console.log('Could not find locations');
+            return;
+        }
+        
+        // Get route from OSRM
+        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${pickupCoords.lng},${pickupCoords.lat};${dropoffCoords.lng},${dropoffCoords.lat}?overview=full`;
+        
+        const response = await fetch(osrmUrl);
+        const data = await response.json();
+        
+        if (data.routes && data.routes.length > 0) {
+            const route = data.routes[0];
+            const distanceKm = (route.distance / 1000).toFixed(1);
+            const durationMin = Math.round(route.duration / 60);
+            const hours = Math.floor(durationMin / 60);
+            const mins = durationMin % 60;
+            
+            // Update display
+            document.getElementById('distanceValue').textContent = distanceKm + ' km';
+            document.getElementById('timeValue').textContent = hours + ' h ' + mins + ' min';
+            
+            // Update map
+            if (map) {
+                // Clear old markers
+                if (pickupMarker) map.removeLayer(pickupMarker);
+                if (dropoffMarker) map.removeLayer(dropoffMarker);
+                if (routeLine) map.removeLayer(routeLine);
+                
+                // Add new markers
+                pickupMarker = L.marker([pickupCoords.lat, pickupCoords.lng])
+                    .addTo(map)
+                    .bindPopup('<b>Pickup:</b> ' + pickup)
+                    .openPopup();
+                
+                dropoffMarker = L.marker([dropoffCoords.lat, dropoffCoords.lng])
+                    .addTo(map)
+                    .bindPopup('<b>Drop-off:</b> ' + dropoff);
+                
+                // Draw route line
+                const routeCoords = route.geometry.coordinates.map(c => [c[1], c[0]]);
+                routeLine = L.polyline(routeCoords, {
+                    color: '#d49a28',
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
+                
+                // Fit map to show both markers
+                const group = new L.featureGroup([pickupMarker, dropoffMarker, routeLine]);
+                map.fitBounds(group.getBounds(), { padding: [50, 50] });
+            }
+        }
+    } catch (error) {
+        console.error('Error calculating route:', error);
+    }
 }
 
-// Auto-calculate when locations change
+async function geocodeLocation(locationName) {
+    try {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}&limit=1`;
+        const response = await fetch(url, {
+            headers: {
+                'Accept-Language': 'en'
+            }
+        });
+        const data = await response.json();
+        
+        if (data && data.length > 0) {
+            return {
+                lat: parseFloat(data[0].lat),
+                lng: parseFloat(data[0].lon)
+            };
+        }
+        return null;
+    } catch (error) {
+        console.error('Geocoding error:', error);
+        return null;
+    }
+}
+
+// EVENT LISTENERS
+
+let debounceTimer;
+
+function debounceCalculate() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(calculateRoute, 1000);
+}
+
 const pickupLocation = document.getElementById('pickupLocation');
 const dropoffLocation = document.getElementById('dropoffLocation');
 
-if (pickupLocation) pickupLocation.addEventListener('blur', calculateRoute);
-if (dropoffLocation) dropoffLocation.addEventListener('blur', calculateRoute);
+if (pickupLocation) pickupLocation.addEventListener('blur', debounceCalculate);
+if (dropoffLocation) dropoffLocation.addEventListener('blur', debounceCalculate);
 
-// =========================
-// FORM SUBMISSION - FIXED
-// =========================
+// FORM SUBMISSION
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // Collect form data
   const formData = {
     rideType: document.querySelector('.ride-tab.active') ? document.querySelector('.ride-tab.active').dataset.type || 'distance' : 'distance',
     pickupDate: document.getElementById('pickupDate').value,
@@ -305,24 +335,17 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
   
   console.log('Booking Data:', formData);
   
-  // Store in localStorage (for next page)
   localStorage.setItem('bookingData', JSON.stringify(formData));
   
-  // Update progress steps
   updateProgressSteps(2);
   
-  // Option 1: Redirect to next page
-  // window.location.href = 'booking-contact.php';
-  
-  // Option 2: Show success message and redirect
   showNotification('Ride details saved! Proceeding to contact information...');
   
   setTimeout(() => {
-    window.location.href = 'booking-contact.php'; // Change to your actual contact page
+    window.location.href = 'booking-contact.php';
   }, 1500);
 });
 
-// Update Progress Steps
 function updateProgressSteps(stepNumber) {
   const steps = document.querySelectorAll('.step');
   steps.forEach((step, index) => {
@@ -335,7 +358,6 @@ function updateProgressSteps(stepNumber) {
   });
 }
 
-// Show Notification
 function showNotification(message) {
   const notification = document.createElement('div');
   notification.className = 'booking-notification';
@@ -366,7 +388,6 @@ function showNotification(message) {
   }, 3000);
 }
 
-// Add animation CSS
 const style = document.createElement('style');
 style.textContent = `
   @keyframes slideIn {
