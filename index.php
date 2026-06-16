@@ -8,7 +8,8 @@
         <h1 class="hero-title mt-3">Rent The Perfect Car For Every<br><span class="accent-text">Adventure Today</span></h1>
         <p class="hero-subtitle mx-auto">Experience unparalleled luxury and dynamic styling with our elite collection of global fleet vehicles, curated specifically for premium comfort.</p>
         <div class="hero-btns mt-4 d-flex justify-content-center gap-3">
-            <button class="cus-button">Book A Ride</button>
+            <!-- <button class="cus-button">Book A Ride</button> -->
+             <a href="reserve-now.php" class="cus-button">Book A Ride</a>
             <button class="btn-outline-premium">See All Cars</button>
         </div>
     </div>
@@ -100,7 +101,8 @@
                     </div>
 
                     <div class="about-action-trigger mt-4">
-                        <button class="cus-button text-white">Discover Our Full Story</button>
+                        <!-- <button class="cus-button text-white">Discover Our Full Story</button> -->
+                        <a href="about-us.php" class="cus-button text-white">Discover Our Full Story</a>
                     </div>
                 </div>
             </div>
@@ -157,7 +159,7 @@
                     </div>
                     <div class="animated-card-bottom-reveal">
                         <p class="service-card-desc">Flexible rental option with well maintained vehicles ideal for city travel.</p>
-                        <a href="#" class="service-learn-link mt-3">
+                        <a href="about-us.php" class="service-learn-link mt-3">
                             <span>Discover More</span> <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -174,7 +176,7 @@
                     </div>
                     <div class="animated-card-bottom-reveal">
                         <p class="service-card-desc">Enjoy complete freedom and privacy with self-drive rental options tailored.</p>
-                        <a href="#" class="service-learn-link mt-3">
+                        <a href="about-us.php" class="service-learn-link mt-3">
                             <span>Discover More</span> <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -191,7 +193,7 @@
                     </div>
                     <div class="animated-card-bottom-reveal">
                         <p class="service-card-desc">Premium vehicles offering comfort, style, and performance for executive travel.</p>
-                        <a href="#" class="service-learn-link mt-3">
+                        <a href="about-us.php" class="service-learn-link mt-3">
                             <span>Discover More</span> <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -315,7 +317,8 @@
                         <span class="price">From $500 <sub>/day</sub></span>
                     </div>
                     <div class="card-hover-overlay">
-                        <button class="btn-book-now">Book Now</button>
+                        <!-- <button class="btn-book-now">Book Now</button> -->
+                        <a href="reserve-now.php" class="btn-book-now">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -330,7 +333,8 @@
                         <span class="price">From $350 <sub>/day</sub></span>
                     </div>
                     <div class="card-hover-overlay">
-                        <button class="btn-book-now">Book Now</button>
+                        <!-- <button class="btn-book-now">Book Now</button> -->
+                        <a href="reserve-now.php" class="btn-book-now">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -345,7 +349,8 @@
                         <span class="price">From $300 <sub>/day</sub></span>
                     </div>
                     <div class="card-hover-overlay">
-                        <button class="btn-book-now">Book Now</button>
+                        <!-- <button class="btn-book-now">Book Now</button> -->
+                        <a href="reserve-now.php" class="btn-book-now">Book Now</a>
                     </div>
                 </div>
             </div>

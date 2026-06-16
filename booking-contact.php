@@ -192,7 +192,7 @@
 </section>
 
 <script>
-// Load booking data from localStorage
+
 document.addEventListener('DOMContentLoaded', function() {
     const bookingData = JSON.parse(localStorage.getItem('bookingData'));
     
@@ -206,7 +206,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Form Submission
 // Form Submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -222,12 +221,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         bookingDate: new Date().toISOString()
     };
     
-    // Save complete booking data
     localStorage.setItem('bookingData', JSON.stringify(completeBooking));
     
     console.log('Complete Booking:', completeBooking);
     
-    // Redirect to confirmation page
     window.location.href = 'confirmation.php';
 }); 
 </script>

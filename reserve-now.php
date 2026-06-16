@@ -17,7 +17,37 @@
     <div class="container">
         
         <!-- Progress Steps -->
-        <div class="booking-progress">
+         <!-- Progress Bar -->
+<div class="booking-progress">
+    <div class="container">
+        <div class="progress-steps">
+            
+            <!-- Step 1: Completed -->
+            <div class="step completed">
+                <div class="step-number">1</div>
+                <div class="step-label">Ride Details</div>
+            </div>
+            
+            <div class="step-connector active"></div>
+            
+            <!-- Step 2: Active -->
+            <div class="step active">
+                <div class="step-number">2</div>
+                <div class="step-label">Contact Info</div>
+            </div>
+            
+            <div class="step-connector"></div>
+            
+            <!-- Step 3: Inactive -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Confirmation</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+        <!-- <div class="booking-progress">
             <div class="progress-steps">
                 <div class="step active">
                     <div class="step-number">1</div>
@@ -34,7 +64,7 @@
                     <div class="step-label">Confirmation</div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Main Booking Form -->
         <div class="booking-wrapper">
